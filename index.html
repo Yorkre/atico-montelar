@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Ático ficticio con terraza: infografías de Cycles, plano y recorrido 3D con luz horneada en el navegador.">
+<meta property="og:title" content="Ático Montelar · infografías y recorrido 3D">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yorkre.github.io/atico-montelar/">
+<meta property="og:image" content="https://yorkre.github.io/atico-montelar/img/01-salon-terraza.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Ático Montelar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: ficha de portal inmobiliario. Mosaico con retícula de acero negro (como la carpintería del piso),
+   cabecera de precio, datos clave en una tira con cotas, texto + reparto de superficies, galería filtrable, plano en hoja blanca. */
+:root {
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --fg: #14181c;
+  --muted: #5a6570;
+  --line: #d3d9df;
+  --steel: #16191c;
+  --accent: #2c5573;
+  --accent-soft: #e1e9f0;
+  --chip-on-fg: #ffffff;
+  --paper: #ffffff;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 72px;
+  --r: 3px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1215; --surface: #171b20; --fg: #e6eaee; --muted: #9aa5b0; --line: #2a3138;
+    --steel: #050607; --accent: #8db4d3; --accent-soft: #1d2b37; --chip-on-fg: #0f1215; --paper: #f4f6f8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1215; --surface: #171b20; --fg: #e6eaee; --muted: #9aa5b0; --line: #2a3138;
+  --steel: #050607; --accent: #8db4d3; --accent-soft: #1d2b37; --chip-on-fg: #0f1215; --paper: #f4f6f8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.6 var(--body); }
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); font-stretch: 78%; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+.eyebrow { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* barra superior */
+.topbar { border-bottom: 1px solid var(--line); background: var(--surface); }
+.topbar .wrap { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); justify-content: space-between; align-items: center; padding-block: var(--s3); }
+.marca-sitio { font: 800 1.05rem/1 var(--display); font-stretch: 70%; letter-spacing: 0.06em; text-transform: uppercase; }
+.aviso { font-size: 0.8rem; color: var(--muted); }
+
+/* mosaico de portada */
+.mosaico {
+  margin-top: var(--s5);
+  display: grid; gap: 6px; padding: 6px; background: var(--steel); border-radius: var(--r);
+  grid-template-columns: 2fr 1fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr));
+  aspect-ratio: 2.1 / 1; max-width: 100%;
+}
+.mosaico button { all: unset; cursor: zoom-in; position: relative; overflow: hidden; min-width: 0; min-height: 0; display: block; }
+.mosaico button:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.mosaico img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.mosaico button:hover img { transform: scale(1.025); }
+.mosaico .principal { grid-row: span 2; }
+.mosaico .mas::after {
+  content: attr(data-mas); position: absolute; inset: 0; display: grid; place-items: center;
+  background: rgb(10 12 14 / 0.55); color: #fff; font: 700 1.15rem/1 var(--display); font-stretch: 80%; letter-spacing: 0.02em;
+}
+
+/* cabecera del anuncio */
+.cabecera { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s4) var(--s6); align-items: end; padding-block: var(--s6) var(--s5); }
+.cabecera h1 { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem); font-weight: 750; line-height: 1.02; letter-spacing: -0.015em; margin-top: var(--s2); }
+.ubic { color: var(--muted); margin-top: var(--s2); }
+.precio { text-align: right; }
+.precio strong { display: block; font: 750 clamp(1.9rem, 1.4rem + 2vw, 2.8rem)/1 var(--display); font-stretch: 75%; font-variant-numeric: tabular-nums; }
+.precio span { font-size: 0.85rem; color: var(--muted); }
+
+/* tira de datos clave */
+.datos { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+.dato { padding: var(--s4) var(--s3); border-left: 1px solid var(--line); min-width: 0; }
+.dato:first-child { border-left: 0; padding-left: 0; }
+.dato b { display: block; font: 700 1.45rem/1.1 var(--display); font-stretch: 80%; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dato b small { font-size: 0.7em; font-weight: 600; }
+.dato span { font-size: 0.78rem; color: var(--muted); line-height: 1.3; display: block; margin-top: 2px; }
+
+/* descripción + superficies */
+.cuerpo { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--s7); padding-block: var(--s7); }
+.texto { max-width: 66ch; }
+.texto p { margin: var(--s4) 0 0; }
+.texto h2 { margin-bottom: var(--s2); }
+.calidades { margin-top: var(--s6); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--s5); }
+.calidades div { padding-block: var(--s3); border-top: 1px solid var(--line); }
+.calidades dt { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.calidades dd { margin: 4px 0 0; font-size: 0.95rem; }
+.ficha { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s5); align-self: start; }
+.ficha h3 { font-size: 1.25rem; font-weight: 700; }
+.ficha table { width: 100%; border-collapse: collapse; margin-top: var(--s3); font-size: 0.93rem; }
+.ficha td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.ficha td:last-child { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ficha tr.total td { border-bottom: 0; border-top: 2px solid var(--fg); font-weight: 600; padding-top: 10px; }
+.ficha tr.ext td { color: var(--muted); }
+.ficha .nota { font-size: 0.8rem; color: var(--muted); margin: var(--s3) 0 0; line-height: 1.45; }
+
+/* galería */
+.seccion { padding-block: var(--s7); border-top: 1px solid var(--line); }
+.seccion-cab { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); align-items: baseline; justify-content: space-between; }
+.filtros { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.chip {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 13px;
+  font-size: 0.86rem; cursor: pointer; display: inline-flex; gap: 6px; align-items: baseline;
+}
+.chip span { font: 500 0.75rem/1 var(--mono); color: var(--muted); }
+.chip:hover { border-color: var(--muted); }
+.recorrido { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s4) var(--s6); align-items: center;
+  background: var(--steel); color: #e9edf0; padding: var(--s6); border-radius: var(--r); margin-top: var(--s5); }
+.recorrido p { margin: 0; max-width: 60ch; color: #b9c3cc; }
+.recorrido h3 { margin: 0 0 var(--s2); font: 700 1.35rem/1.15 var(--display); font-stretch: 85%; color: #fff; }
+.btn-3d { display: inline-flex; align-items: center; gap: var(--s2); padding: 14px 22px; border-radius: var(--r); background: #fff;
+  color: #14181c; font: 600 0.95rem/1 var(--body); text-decoration: none; white-space: nowrap; }
+.btn-3d:hover { background: #dfe6ec; }
+.btn-3d:focus-visible { outline: 2px solid #8db4d3; outline-offset: 3px; }
+.ubic a { color: var(--accent); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; margin-left: var(--s3); }
+@media (max-width: 640px) { .recorrido { grid-template-columns: 1fr; padding: var(--s5); } .btn-3d { justify-content: center; } }
+.chip[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.chip[aria-pressed="true"] span { color: var(--bg); opacity: 0.7; }
+.rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); margin-top: var(--s5); }
+.foto { all: unset; cursor: zoom-in; display: flex; flex-direction: column; gap: var(--s2); min-width: 0; }
+.foto:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.foto .marco { background: var(--steel); padding: 3px; border-radius: var(--r); overflow: hidden; aspect-ratio: 3 / 2; max-width: 100%; }
+.foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .2s; }
+.foto:hover img { opacity: 0.88; }
+.foto .pie { display: flex; gap: var(--s2); justify-content: space-between; align-items: baseline; font-size: 0.9rem; }
+.foto .pie em { font: normal 500 0.72rem/1 var(--mono); color: var(--muted); letter-spacing: 0.05em; }
+
+/* plano */
+.plano-hoja { margin-top: var(--s5); background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: grid; place-items: center; }
+.plano-hoja button { all: unset; cursor: zoom-in; display: block; max-width: 760px; width: 100%; }
+.plano-hoja button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.plano-hoja img { width: 100%; height: auto; display: block; }
+.plano-notas { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); margin-top: var(--s3); font-size: 0.85rem; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding-block: var(--s6) var(--s7); font-size: 0.85rem; color: var(--muted); }
+footer p { max-width: 80ch; margin: 0 0 var(--s2); }
+
+/* visor ampliado */
+dialog.visor {
+  border: 0; padding: 0; margin: 0; width: 100vw; height: 100%; max-width: 100vw; max-height: 100%;
+  background: rgb(8 10 12 / 0.96); color: #eef1f4;
+}
+dialog.visor::backdrop { background: rgb(8 10 12 / 0.8); }
+.visor-int {
+  height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: max(10px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(14px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.visor-barra { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); min-height: 44px; }
+.visor-barra .cont { font: 500 0.8rem/1 var(--mono); letter-spacing: 0.06em; color: #aeb7c0; }
+.visor-escena { position: relative; display: grid; place-items: center; min-height: 0; }
+.visor-escena img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; user-select: none; }
+.visor-escena img.svg { background: #fff; padding: 8px; border-radius: 2px; }
+.vbtn {
+  border: 1px solid rgb(255 255 255 / 0.22); background: rgb(255 255 255 / 0.06); color: #eef1f4; border-radius: 999px;
+  width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer; font-size: 1.2rem; line-height: 1;
+}
+.vbtn:hover { background: rgb(255 255 255 / 0.14); }
+.vbtn:focus-visible { outline: 2px solid #8db4d3; outline-offset: 2px; }
+.visor-escena .vbtn { position: absolute; top: 50%; transform: translateY(-50%); background: rgb(8 10 12 / 0.55); }
+.visor-escena .ant { left: 6px; }
+.visor-escena .sig { right: 6px; }
+.visor-pie { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2) var(--s4); padding-top: var(--s3); align-items: baseline; }
+.visor-pie b { font: 700 1.1rem/1.2 var(--display); font-stretch: 80%; }
+.visor-pie small { color: #aeb7c0; }
+
+@media (max-width: 1080px) {
+  .datos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .dato:nth-child(4n + 1) { border-left: 0; padding-left: 0; }
+  .dato:nth-child(n + 5) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 860px) {
+  .cuerpo { grid-template-columns: minmax(0, 1fr); gap: var(--s6); }
+  .mosaico { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; aspect-ratio: auto; }
+  .mosaico .principal { grid-column: span 2; grid-row: auto; aspect-ratio: 3 / 2; }
+  .mosaico button:not(.principal) { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 560px) {
+  .cabecera { grid-template-columns: minmax(0, 1fr); }
+  .precio { text-align: left; }
+  .datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dato:nth-child(4n + 1) { border-left: 1px solid var(--line); padding-left: var(--s3); }
+  .dato:nth-child(2n + 1) { border-left: 0; padding-left: 0; }
+  .dato:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .calidades { grid-template-columns: minmax(0, 1fr); }
+  .mosaico button:nth-child(n + 4) { display: none; }
+  .rejilla { grid-template-columns: minmax(0, 1fr); }
+  .visor-escena .vbtn { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mosaico img, .foto img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="marca-sitio">Ático Montelar</span>
+    <span class="aviso">Anuncio ficticio · vivienda, ubicación y precio inventados · infografías 3D orientativas</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="mosaico" id="mosaico" aria-label="Fotos destacadas"></div>
+
+  <section class="cabecera">
+    <div>
+      <div class="eyebrow">Ático en venta · Ref. MTL-0812</div>
+      <h1>Ático industrial de 3 dormitorios con terraza de 32 m² al sur</h1>
+      <div class="ubic">Calle del Taller, barrio de Ensanche Norte · Montelar <a href="#recorrido">Recorrido 3D</a></div>
+    </div>
+    <div class="precio">
+      <strong>485.000 €</strong>
+      <span>5.243 €/m² útil · comunidad 110 €/mes</span>
+    </div>
+  </section>
+
+  <div class="datos" role="list">
+    <div class="dato" role="listitem"><b>92,5 <small>m²</small></b><span>útiles</span></div>
+    <div class="dato" role="listitem"><b>108 <small>m²</small></b><span>construidos</span></div>
+    <div class="dato" role="listitem"><b>31,7 <small>m²</small></b><span>terraza al sur</span></div>
+    <div class="dato" role="listitem"><b>3</b><span>dormitorios</span></div>
+    <div class="dato" role="listitem"><b>2</b><span>baños completos</span></div>
+    <div class="dato" role="listitem"><b>8ª</b><span>planta, con ascensor</span></div>
+    <div class="dato" role="listitem"><b>2,70 <small>m</small></b><span>altura libre</span></div>
+    <div class="dato" role="listitem"><b>A</b><span>certificado energético</span></div>
+  </div>
+
+  <section class="cuerpo">
+    <div class="texto">
+      <h2>Luz de sur, acero negro y una terraza de lado a lado</h2>
+      <p>Ático en la octava y última planta de un edificio de viviendas rehabilitado en 2024. La terraza de 31,7 m² ocupa toda la fachada sur, y a ella se abren el salón, la cocina y el dormitorio principal con balconeras de suelo a techo en carpintería de acero negro. El sol entra hasta el fondo de la casa durante todo el día.</p>
+      <p>La zona de día es un único espacio de 37,6 m². El salón tiene una pared de hormigón visto y el comedor para seis se sitúa junto a la ventana de poniente. La cocina tiene isla de cuarzo blanco con placa de inducción, columnas de horno y frigorífico integrados, y un frente de azulejo blanco con baldas de roble. Un cerramiento de acero y vidrio separa el salón del pasillo sin restarle luz.</p>
+      <p>Los dormitorios están en la fachada norte, la más tranquila. El principal mide 16,5 m², tiene salida directa a la terraza, ventana a levante y armario de 2,25 m. El segundo, de 10,7 m², recibe luz por dos fachadas. El tercero, de 8,3 m², tiene cama individual y zona de estudio. Los dos baños completos están revestidos de porcelánico gris cemento: uno con ducha de obra y mampara, y el otro con bañera.</p>
+      <p>Toda la vivienda tiene suelo continuo de microcemento blanco y luminarias industriales en negro. La climatización es por aerotermia, con suelo radiante y aire acondicionado por conductos.</p>
+
+      <dl class="calidades">
+        <div><dt>Suelo</dt><dd>Microcemento continuo blanco, satinado</dd></div>
+        <div><dt>Carpintería exterior</dt><dd>Acero lacado negro, vidrio laminado bajo emisivo</dd></div>
+        <div><dt>Cocina</dt><dd>Laminado antracita mate, encimera e isla de cuarzo blanco</dd></div>
+        <div><dt>Paredes</dt><dd>Pintura blanca mate, paños gris acero y hormigón visto</dd></div>
+        <div><dt>Baños</dt><dd>Porcelánico 60×120 gris cemento, grifería negra mate</dd></div>
+        <div><dt>Puertas</dt><dd>Lacadas en negro mate, de suelo a 2,10 m</dd></div>
+        <div><dt>Climatización</dt><dd>Aerotermia, suelo radiante, conductos frío/calor</dd></div>
+        <div><dt>Terraza</dt><dd>Porcelánico exterior antideslizante, peto con vidrio</dd></div>
+      </dl>
+    </div>
+
+    <aside class="ficha" aria-labelledby="sup-tit">
+      <div class="eyebrow">Cuadro de superficies</div>
+      <h3 id="sup-tit">Superficies útiles por estancia</h3>
+      <table>
+        <tbody id="tabla-sup"></tbody>
+      </table>
+      <p class="nota">Superficies útiles medidas en el plano, a cara interior de muros y tabiques. La construida incluye muros de fachada y tabiquería. No incluye zonas comunes.</p>
+    </aside>
+  </section>
+
+  <section class="seccion" id="galeria" aria-labelledby="gal-tit">
+    <div class="seccion-cab">
+      <h2 id="gal-tit">Galería</h2>
+      <span class="eyebrow" id="gal-cuenta"></span>
+    </div>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar por estancia"></div>
+    <div class="rejilla" id="rejilla"></div>
+  </section>
+
+  <section class="seccion" id="plano" aria-labelledby="plano-tit">
+    <div class="seccion-cab">
+      <h2 id="plano-tit">Plano de la vivienda</h2>
+      <span class="eyebrow">Escala gráfica · cotas en metros</span>
+    </div>
+    <div class="plano-hoja">
+      <button type="button" id="abrir-plano" aria-label="Ampliar el plano">
+        <img src="plano-atico.svg" alt="Plano de planta del ático: zona de día y dormitorio principal al sur abiertos a la terraza; dormitorios 2 y 3, dos baños, recibidor y pasillo al norte." width="1004" height="1111" loading="lazy">
+      </button>
+    </div>
+    <div class="plano-notas">
+      <span>Muros de fachada 30 cm · tabiques 10 cm</span>
+      <span>Puertas de paso 85 cm, entrada 95 cm</span>
+      <span>Pasos libres ≥ 80 cm comprobados con el mobiliario</span>
+    </div>
+  </section>
+
+  <section class="seccion" id="recorrido" aria-labelledby="rec-tit">
+    <div class="recorrido">
+      <div>
+        <h3 id="rec-tit">Recorrido 3D por el ático</h3>
+        <p>Pasea por la casa y por la terraza, o gira la maqueta para ver la distribución completa. Tiene la luz de una tarde de otoño a las 17:15, calculada con el sol real de la fachada sur. Funciona en el móvil.</p>
+      </div>
+      <a class="btn-3d" href="recorrido/">Abrir el recorrido 3D <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Vivienda, dirección, referencia, precio y datos de este anuncio son ficticios y se publican solo como demostración. Las imágenes son infografías 3D generadas por ordenador, orientativas; el mobiliario y la decoración no se incluyen.</p>
+    <p>Ciudad de Montelar inventada. Sin relación con ningún portal, agencia ni promotora.</p>
+  </div>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Visor de imágenes">
+  <div class="visor-int">
+    <div class="visor-barra">
+      <span class="cont" id="v-cont"></span>
+      <button class="vbtn" type="button" id="v-cerrar" aria-label="Cerrar el visor">✕</button>
+    </div>
+    <div class="visor-escena" id="v-escena">
+      <img id="v-img" alt="">
+      <button class="vbtn ant" type="button" id="v-ant" aria-label="Imagen anterior">‹</button>
+      <button class="vbtn sig" type="button" id="v-sig" aria-label="Imagen siguiente">›</button>
+    </div>
+    <div class="visor-pie">
+      <b id="v-tit"></b>
+      <small id="v-est"></small>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var ESTANCIAS = [
+    ["salon", "Salón-comedor", 25.38], ["cocina", "Cocina", 12.22], ["d1", "Dormitorio principal", 16.45],
+    ["d2", "Dormitorio 2", 10.70], ["d3", "Dormitorio 3", 8.28], ["b1", "Baño 1", 4.70], ["b2", "Baño 2", 4.46],
+    ["recibidor", "Recibidor", 4.41], ["pasillo", "Pasillo", 5.90], ["terraza", "Terraza", 31.72], ["planta", "Planta 3D", null]
+  ];
+  var NOMBRE = {}; ESTANCIAS.forEach(function (e) { NOMBRE[e[0]] = e[1]; });
+  NOMBRE.recibidor = "Recibidor y pasillo";
+
+  var FOTOS = [
+    ["01-salon-terraza", "Salón con salida a la terraza", "salon"],
+    ["02-salon-tv", "Salón: zona de estar", "salon"],
+    ["03-salon-comedor-cocina", "Comedor y cocina abierta", "salon"],
+    ["04-comedor", "Comedor junto a la ventana", "salon"],
+    ["05-cocina-isla", "Cocina con isla", "cocina"],
+    ["06-cocina-hacia-salon", "Cocina abierta al salón", "cocina"],
+    ["07-cocina-frente", "Frente de cocina y baldas", "cocina"],
+    ["08-dormitorio-principal", "Dormitorio principal", "d1"],
+    ["09-dormitorio-principal-terraza", "Dormitorio principal con salida a terraza", "d1"],
+    ["10-dormitorio-2", "Dormitorio 2", "d2"],
+    ["11-dormitorio-2-armario", "Dormitorio 2: armario y acceso", "d2"],
+    ["12-dormitorio-3", "Dormitorio 3", "d3"],
+    ["13-dormitorio-3-escritorio", "Dormitorio 3: zona de estudio", "d3"],
+    ["14-bano-1", "Baño 1 con ducha", "b1"],
+    ["15-bano-1-lavabo", "Baño 1: lavabo", "b1"],
+    ["16-bano-2", "Baño 2 con bañera", "b2"],
+    ["17-bano-2-lavabo", "Baño 2: lavabo", "b2"],
+    ["18-recibidor-pasillo", "Recibidor y pasillo", "recibidor"],
+    ["19-terraza", "Terraza de 32 m²", "terraza"],
+    ["20-planta-3d", "Planta 3D de la vivienda", "planta"]
+  ].map(function (f, i) {
+    return { id: f[0], titulo: f[1], est: f[2], n: i + 1, src: "img/" + f[0] + ".jpg", min: "img/min/" + f[0] + ".jpg" };
+  });
+  var PLANO = [{ id: "plano", titulo: "Plano de planta", est: "plano", n: 1, src: "plano-atico.svg", svg: true }];
+
+  function fmt(v) { return v.toFixed(2).replace(".", ",") + " m²"; }
+
+  // cuadro de superficies
+  var tb = document.getElementById("tabla-sup"), util = 0, html = "";
+  ESTANCIAS.forEach(function (e) {
+    if (e[2] == null || e[0] === "terraza") return;
+    util += e[2];
+    html += "<tr><td>" + e[1] + "</td><td>" + fmt(e[2]) + "</td></tr>";
+  });
+  html += '<tr class="total"><td>Total útil</td><td>' + fmt(util) + "</td></tr>";
+  html += '<tr class="ext"><td>Terraza (exterior)</td><td>' + fmt(31.72) + "</td></tr>";
+  html += '<tr class="ext"><td>Superficie construida</td><td>' + fmt(107.97) + "</td></tr>";
+  tb.innerHTML = html;
+
+  // mosaico
+  var mos = document.getElementById("mosaico");
+  ["01-salon-terraza", "05-cocina-isla", "09-dormitorio-principal-terraza", "19-terraza", "16-bano-2"].forEach(function (id, k) {
+    var f = FOTOS.filter(function (x) { return x.id === id; })[0];
+    var b = document.createElement("button");
+    b.type = "button";
+    if (k === 0) b.className = "principal";
+    if (k === 4) { b.className = "mas"; b.setAttribute("data-mas", "Ver las " + FOTOS.length + " imágenes"); }
+    b.setAttribute("aria-label", "Ampliar: " + f.titulo);
+    b.innerHTML = '<img src="' + (k === 0 ? f.src : f.min) + '" alt="' + f.titulo + '"' + (k === 0 ? ' fetchpriority="high"' : "") + ">";
+    b.addEventListener("click", function () { abrir(FOTOS, FOTOS.indexOf(f)); });
+    mos.appendChild(b);
+  });
+
+  // galería filtrable
+  var filtro = "todas";
+  try { filtro = localStorage.getItem("atico-filtro") || "todas"; } catch (e) {}
+  var filtros = document.getElementById("filtros"), rej = document.getElementById("rejilla"), cuenta = document.getElementById("gal-cuenta");
+  var grupos = [["todas", "Todas"]];
+  ESTANCIAS.forEach(function (e) {
+    var key = e[0] === "pasillo" ? null : e[0];
+    if (key && FOTOS.some(function (f) { return f.est === key; })) grupos.push([key, NOMBRE[key]]);
+  });
+  if (!grupos.some(function (g) { return g[0] === filtro; })) filtro = "todas";
+  function visibles() { return FOTOS.filter(function (f) { return filtro === "todas" || f.est === filtro; }); }
+
+  grupos.forEach(function (g) {
+    var n = g[0] === "todas" ? FOTOS.length : FOTOS.filter(function (f) { return f.est === g[0]; }).length;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.id = "filtro-" + g[0];
+    b.innerHTML = g[1] + " <span>" + n + "</span>";
+    b.addEventListener("click", function () {
+      filtro = g[0];
+      try { localStorage.setItem("atico-filtro", filtro); } catch (e) {}
+      pintar();
+    });
+    filtros.appendChild(b);
+  });
+
+  function pintar() {
+    Array.prototype.forEach.call(filtros.children, function (b) { b.setAttribute("aria-pressed", String(b.id === "filtro-" + filtro)); });
+    var lista = visibles();
+    cuenta.textContent = lista.length + (lista.length === 1 ? " imagen" : " imágenes") + " · 1800 × 1200 px";
+    rej.innerHTML = "";
+    lista.forEach(function (f, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "foto";
+      b.setAttribute("aria-label", "Ampliar: " + f.titulo);
+      b.innerHTML = '<div class="marco"><img src="' + f.min + '" alt="' + f.titulo + '" loading="lazy" width="720" height="480"></div>' +
+        '<div class="pie"><span>' + f.titulo + "</span><em>" + String(f.n).padStart(2, "0") + "</em></div>";
+      b.addEventListener("click", function () { abrir(lista, i); });
+      rej.appendChild(b);
+    });
+  }
+  pintar();
+
+  // visor ampliado
+  var dlg = document.getElementById("visor"), vimg = document.getElementById("v-img");
+  var vtit = document.getElementById("v-tit"), vest = document.getElementById("v-est"), vcont = document.getElementById("v-cont");
+  var vant = document.getElementById("v-ant"), vsig = document.getElementById("v-sig");
+  var actual = [], idx = 0, origen = null;
+
+  function mostrar() {
+    var f = actual[idx];
+    vimg.src = f.src; vimg.alt = f.titulo; vimg.className = f.svg ? "svg" : "";
+    vtit.textContent = f.titulo;
+    vest.textContent = f.svg ? "Escala gráfica y norte en el propio plano" : (NOMBRE[f.est] || "") + " · Infografía 3D, imagen orientativa";
+    vcont.textContent = actual.length > 1 ? (idx + 1) + " / " + actual.length : "";
+    vant.hidden = vsig.hidden = actual.length < 2;
+    if (actual.length > 1) {
+      [idx - 1, idx + 1].forEach(function (j) { var p = actual[(j + actual.length) % actual.length]; if (!p.svg) { var im = new Image(); im.src = p.src; } });
+    }
+  }
+  function abrir(lista, i) {
+    origen = document.activeElement; actual = lista; idx = i; mostrar();
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    document.getElementById("v-cerrar").focus();
+  }
+  function mover(d) { if (actual.length < 2) return; idx = (idx + d + actual.length) % actual.length; mostrar(); }
+  function cerrar() { if (dlg.open) dlg.close(); }
+  dlg.addEventListener("close", function () { if (origen && origen.focus) origen.focus(); });
+  document.getElementById("v-cerrar").addEventListener("click", cerrar);
+  vant.addEventListener("click", function () { mover(-1); });
+  vsig.addEventListener("click", function () { mover(1); });
+  document.getElementById("v-escena").addEventListener("click", function (e) { if (e.target === this) cerrar(); });
+  dlg.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { mover(1); e.preventDefault(); }
+    else if (e.key === "ArrowLeft") { mover(-1); e.preventDefault(); }
+  });
+  var x0 = null;
+  vimg.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  vimg.addEventListener("touchend", function (e) {
+    if (x0 == null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) mover(dx < 0 ? 1 : -1);
+  });
+  document.getElementById("abrir-plano").addEventListener("click", function () { abrir(PLANO, 0); });
+})();
+</script>
+
+</body>
+</html>

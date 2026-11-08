@@ -1,0 +1,1830 @@
+{
+ "id": "atico",
+ "direccion": "Calle del Taller, Ensanche Norte · Montelar",
+ "paseo_movil": "tocar",
+ "altura": 2.7,
+ "planta": {
+  "altura_suelo": 24.0
+ },
+ "atico": true,
+ "calle": {
+  "lado": "S",
+  "ancho": 20.0
+ },
+ "orientacion": 0,
+ "orientacion_fija": true,
+ "luz": {
+  "label": "Tarde de otoño",
+  "day": 21,
+  "month": 9,
+  "hour": 17.25,
+  "focos": true
+ },
+ "estancias": [
+  {
+   "id": "salon",
+   "nombre": "Salón",
+   "tipo": "salon",
+   "rects": [
+    [
+     0.0,
+     3.55,
+     5.4,
+     8.25
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "cocina",
+   "nombre": "Cocina",
+   "tipo": "cocina",
+   "rects": [
+    [
+     5.4,
+     3.55,
+     8.0,
+     8.25
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "d1",
+   "nombre": "Dormitorio principal",
+   "tipo": "dormitorio",
+   "rects": [
+    [
+     8.1,
+     3.55,
+     11.6,
+     8.25
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "d2",
+   "nombre": "Dormitorio 2",
+   "tipo": "dormitorio",
+   "rects": [
+    [
+     0.0,
+     0.0,
+     3.1,
+     3.45
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "d3",
+   "nombre": "Dormitorio 3",
+   "tipo": "dormitorio",
+   "rects": [
+    [
+     9.2,
+     0.0,
+     11.6,
+     3.45
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "b1",
+   "nombre": "Baño 1",
+   "tipo": "bano",
+   "rects": [
+    [
+     7.1,
+     0.0,
+     9.1,
+     2.35
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "b2",
+   "nombre": "Baño 2",
+   "tipo": "bano",
+   "rects": [
+    [
+     3.2,
+     0.0,
+     5.1,
+     2.35
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "recibidor",
+   "nombre": "Recibidor",
+   "tipo": "entrada",
+   "rects": [
+    [
+     5.2,
+     0.0,
+     7.0,
+     2.45
+    ]
+   ],
+   "suelo": "micro"
+  },
+  {
+   "id": "pasillo",
+   "nombre": "Pasillo",
+   "tipo": "pasillo",
+   "rects": [
+    [
+     3.2,
+     2.45,
+     9.1,
+     3.45
+    ]
+   ],
+   "suelo": "micro"
+  }
+ ],
+ "muros": [
+  {
+   "id": "M-S",
+   "rect": [
+    -0.3,
+    8.25,
+    11.9,
+    8.55
+   ]
+  },
+  {
+   "id": "M-N",
+   "rect": [
+    -0.3,
+    -0.3,
+    11.9,
+    0.0
+   ]
+  },
+  {
+   "id": "M-O",
+   "rect": [
+    -0.3,
+    0.0,
+    0.0,
+    8.25
+   ]
+  },
+  {
+   "id": "M-E",
+   "rect": [
+    11.6,
+    0.0,
+    11.9,
+    8.25
+   ]
+  },
+  {
+   "id": "T-1",
+   "rect": [
+    0.0,
+    3.45,
+    3.2,
+    3.55
+   ]
+  },
+  {
+   "id": "MP-1",
+   "rect": [
+    3.2,
+    3.45,
+    5.4,
+    3.55
+   ]
+  },
+  {
+   "id": "T-2",
+   "rect": [
+    5.4,
+    3.45,
+    11.6,
+    3.55
+   ]
+  },
+  {
+   "id": "T-3",
+   "rect": [
+    8.0,
+    3.55,
+    8.1,
+    8.25
+   ]
+  },
+  {
+   "id": "T-4",
+   "rect": [
+    3.1,
+    0.0,
+    3.2,
+    3.45
+   ]
+  },
+  {
+   "id": "T-5",
+   "rect": [
+    3.2,
+    2.35,
+    5.2,
+    2.45
+   ]
+  },
+  {
+   "id": "T-6",
+   "rect": [
+    5.1,
+    0.0,
+    5.2,
+    2.35
+   ]
+  },
+  {
+   "id": "T-7",
+   "rect": [
+    7.0,
+    0.0,
+    7.1,
+    2.35
+   ]
+  },
+  {
+   "id": "T-8",
+   "rect": [
+    7.0,
+    2.35,
+    9.1,
+    2.45
+   ]
+  },
+  {
+   "id": "T-9",
+   "rect": [
+    9.1,
+    0.0,
+    9.2,
+    3.45
+   ]
+  }
+ ],
+ "huecos": [
+  {
+   "id": "V-SAL-S",
+   "muro": "M-S",
+   "ancho": 4.7,
+   "c": 2.7,
+   "tipo": "balconera",
+   "antepecho": 0.0,
+   "alto": 2.5,
+   "hojas": 4,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": [
+    0.95,
+    2.05
+   ]
+  },
+  {
+   "id": "V-SAL-O",
+   "muro": "M-O",
+   "ancho": 1.6,
+   "c": 4.6,
+   "tipo": "ventana",
+   "antepecho": 0.6,
+   "alto": 1.9,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "V-COC-S",
+   "muro": "M-S",
+   "ancho": 1.7,
+   "c": 6.45,
+   "tipo": "balconera",
+   "antepecho": 0.0,
+   "alto": 2.5,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": [
+    0.95,
+    2.05
+   ]
+  },
+  {
+   "id": "V-D1-S",
+   "muro": "M-S",
+   "ancho": 2.3,
+   "c": 9.75,
+   "tipo": "balconera",
+   "antepecho": 0.0,
+   "alto": 2.5,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": [
+    0.95,
+    2.05
+   ],
+   "cortinas": true
+  },
+  {
+   "id": "V-D1-E",
+   "muro": "M-E",
+   "ancho": 2.0,
+   "c": 5.9,
+   "tipo": "ventana",
+   "antepecho": 0.5,
+   "alto": 2.0,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "V-D2-N",
+   "muro": "M-N",
+   "ancho": 2.1,
+   "c": 1.45,
+   "tipo": "ventana",
+   "antepecho": 0.45,
+   "alto": 2.05,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "V-D2-O",
+   "muro": "M-O",
+   "ancho": 1.6,
+   "c": 1.65,
+   "tipo": "ventana",
+   "antepecho": 0.6,
+   "alto": 1.9,
+   "hojas": 2,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "V-B2-N",
+   "muro": "M-N",
+   "ancho": 0.9,
+   "c": 4.05,
+   "tipo": "ventana",
+   "antepecho": 1.25,
+   "alto": 1.05,
+   "hojas": 1,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": [],
+   "mate": true
+  },
+  {
+   "id": "V-B1-N",
+   "muro": "M-N",
+   "ancho": 0.75,
+   "c": 8.625,
+   "tipo": "ventana",
+   "antepecho": 1.3,
+   "alto": 1.0,
+   "hojas": 1,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": [],
+   "mate": true
+  },
+  {
+   "id": "V-D3-N",
+   "muro": "M-N",
+   "ancho": 0.7,
+   "c": 10.2,
+   "tipo": "ventana",
+   "antepecho": 0.6,
+   "alto": 1.9,
+   "hojas": 1,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "V-D3-E",
+   "muro": "M-E",
+   "ancho": 0.9,
+   "c": 2.9,
+   "tipo": "ventana",
+   "antepecho": 0.95,
+   "alto": 1.55,
+   "hojas": 1,
+   "marco": "steelBlack",
+   "acero": true,
+   "travesanos": []
+  },
+  {
+   "id": "P-ENT",
+   "muro": "M-N",
+   "ancho": 0.95,
+   "c": 6.175,
+   "tipo": "entrada",
+   "alto": 2.1,
+   "mat": "door",
+   "marco": "steelBlack"
+  },
+  {
+   "id": "P-SAL",
+   "muro": "MP-1",
+   "ancho": 0.85,
+   "c": 4.875,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "S",
+   "bisagra": "+",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack",
+   "vidriera": true
+  },
+  {
+   "id": "P-D1",
+   "muro": "T-2",
+   "ancho": 0.85,
+   "c": 8.575,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "S",
+   "bisagra": "-",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack"
+  },
+  {
+   "id": "P-D2",
+   "muro": "T-4",
+   "ancho": 0.85,
+   "c": 2.955,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "W",
+   "bisagra": "+",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack"
+  },
+  {
+   "id": "P-D3",
+   "muro": "T-9",
+   "ancho": 0.85,
+   "c": 2.975,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "E",
+   "bisagra": "+",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack"
+  },
+  {
+   "id": "P-B2",
+   "muro": "T-5",
+   "ancho": 0.85,
+   "c": 3.725,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "N",
+   "bisagra": "-",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack"
+  },
+  {
+   "id": "P-B1",
+   "muro": "T-8",
+   "ancho": 0.85,
+   "c": 7.605,
+   "tipo": "puerta",
+   "alto": 2.1,
+   "abre": "N",
+   "bisagra": "-",
+   "mat": "doorBlack",
+   "marco": "steelBlack",
+   "tirador": "steelBlack"
+  },
+  {
+   "id": "MP-1-V",
+   "muro": "MP-1",
+   "tipo": "ventana",
+   "c": 3.8,
+   "ancho": 1.1,
+   "antepecho": 0.05,
+   "alto": 2.45,
+   "marco": "steelBlack",
+   "acero": true,
+   "interior": true,
+   "travesanos": [
+    0.95,
+    2.05
+   ],
+   "hojas": 2
+  }
+ ],
+ "muebles": [
+  {
+   "tipo": "mueble_tv",
+   "ref": "sal-mueble-tv",
+   "x": 0.008,
+   "z": 6.4,
+   "rot": 90,
+   "ancho": 1.8,
+   "pulgadas": 65,
+   "mat": "blackLacquer"
+  },
+  {
+   "tipo": "sofa",
+   "ref": "sal-sofa",
+   "x": 3.72,
+   "z": 6.4,
+   "rot": 270,
+   "ancho": 2.0,
+   "tela": "charcoal",
+   "cojines": [
+    "cushionBlue",
+    "pearl",
+    null
+   ]
+  },
+  {
+   "tipo": "mesa_centro",
+   "ref": "sal-mesa-centro",
+   "x": 1.82,
+   "z": 6.4,
+   "rot": 0,
+   "radio": 0.4,
+   "mat": "concrete"
+  },
+  {
+   "tipo": "alfombra",
+   "ref": "sal-alfombra",
+   "x": 2.075,
+   "z": 6.4,
+   "rot": 0,
+   "ancho": 2.25,
+   "fondo": 2.2,
+   "mat": "rugGrey"
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-planta",
+   "x": 0.37,
+   "z": 7.89,
+   "rot": 0,
+   "id": "potted_plant_01",
+   "escala": 0.9993
+  },
+  {
+   "tipo": "mesa_comedor",
+   "ref": "sal-mesa-comedor",
+   "x": 1.45,
+   "z": 4.83,
+   "rot": 0,
+   "largo": 1.8,
+   "ancho": 0.9,
+   "sillas": 0,
+   "mat": "greyOak",
+   "patas": "steelBlack"
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-n1",
+   "x": 0.85,
+   "z": 4.29,
+   "rot": 0,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-s1",
+   "x": 0.85,
+   "z": 5.37,
+   "rot": 180,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-n2",
+   "x": 1.45,
+   "z": 4.29,
+   "rot": 0,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-s2",
+   "x": 1.45,
+   "z": 5.37,
+   "rot": 180,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-n3",
+   "x": 2.05,
+   "z": 4.29,
+   "rot": 0,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "modelo",
+   "ref": "sal-silla-s3",
+   "x": 2.05,
+   "z": 5.37,
+   "rot": 180,
+   "id": "dining_chair_02",
+   "escala": 0.8428
+  },
+  {
+   "tipo": "cuadro",
+   "ref": "sal-cuadro",
+   "x": 1.45,
+   "z": 3.55,
+   "rot": 0,
+   "y": 1.85,
+   "ancho": 1.1,
+   "alto": 0.75,
+   "marco": "steelBlack"
+  },
+  {
+   "tipo": "modelo",
+   "x": 1.05,
+   "z": 4.83,
+   "rot": 0,
+   "y0": 1.65,
+   "id": "hanging_industrial_lamp",
+   "escala": 0.738
+  },
+  {
+   "tipo": "modelo",
+   "x": 1.85,
+   "z": 4.83,
+   "rot": 0,
+   "y0": 1.65,
+   "id": "hanging_industrial_lamp",
+   "escala": 0.738
+  },
+  {
+   "tipo": "cocina",
+   "ref": "coc-bajos",
+   "x": 8.0,
+   "z": 5.6,
+   "rot": 270,
+   "ciego": [
+    "izq",
+    0.64
+   ],
+   "modulos": [
+    [
+     "base",
+     0.6
+    ],
+    [
+     "base",
+     0.7
+    ],
+    [
+     "base",
+     0.7
+    ],
+    [
+     "fregadero",
+     0.8
+    ],
+    [
+     "lavavajillas",
+     0.6
+    ],
+    [
+     "base",
+     0.7
+    ]
+   ],
+   "mat": "anthracite",
+   "encimera": "quartz"
+  },
+  {
+   "tipo": "columna_cocina",
+   "x": 5.86,
+   "z": 3.55,
+   "rot": 0,
+   "ancho": 0.6,
+   "alto": 2.25,
+   "mat": "anthracite"
+  },
+  {
+   "tipo": "columna_cocina",
+   "x": 6.46,
+   "z": 3.55,
+   "rot": 0,
+   "ancho": 0.6,
+   "alto": 2.25,
+   "mat": "anthracite",
+   "horno": true
+  },
+  {
+   "tipo": "nevera",
+   "x": 7.06,
+   "z": 3.55,
+   "rot": 0,
+   "ancho": 0.6,
+   "alto": 2.25,
+   "mat": "anthracite"
+  },
+  {
+   "tipo": "baldas",
+   "ref": "coc-baldas",
+   "x": 7.992,
+   "z": 6.1,
+   "rot": 270,
+   "ancho": 2.6,
+   "y": [
+    1.45,
+    1.85
+   ],
+   "fondo": 0.26,
+   "mat": "greyOak",
+   "soporte": "steelBlack"
+  },
+  {
+   "tipo": "isla",
+   "ref": "coc-isla",
+   "x": 6.025,
+   "z": 6.05,
+   "rot": 270,
+   "ancho": 2.0,
+   "fondo": 0.65,
+   "vuelo": 0.3,
+   "taburetes": 0,
+   "colgantes": 2,
+   "placa": true,
+   "mat": "blackLacquer",
+   "encimera": "quartz",
+   "frutero": true
+  },
+  {
+   "tipo": "modelo",
+   "ref": "coc-taburete-1",
+   "x": 5.21,
+   "z": 6.67,
+   "rot": 90,
+   "id": "metal_stool_02",
+   "escala": 1.441
+  },
+  {
+   "tipo": "modelo",
+   "ref": "coc-taburete-2",
+   "x": 5.21,
+   "z": 6.05,
+   "rot": 90,
+   "id": "metal_stool_02",
+   "escala": 1.441
+  },
+  {
+   "tipo": "modelo",
+   "ref": "coc-taburete-3",
+   "x": 5.21,
+   "z": 5.43,
+   "rot": 90,
+   "id": "metal_stool_02",
+   "escala": 1.441
+  },
+  {
+   "tipo": "cama",
+   "ref": "d1-cama",
+   "x": 8.108,
+   "z": 5.9,
+   "rot": 90,
+   "ancho": 1.6,
+   "largo": 2.0,
+   "tela": "pearl",
+   "plaid": "cushionBlue"
+  },
+  {
+   "tipo": "mesilla",
+   "ref": "d1-mesita-s",
+   "x": 8.108,
+   "z": 7.05,
+   "rot": 90,
+   "ancho": 0.45,
+   "mat": "greyOak",
+   "lampara": false
+  },
+  {
+   "tipo": "mesilla",
+   "ref": "d1-mesita-n",
+   "x": 8.108,
+   "z": 4.75,
+   "rot": 90,
+   "ancho": 0.45,
+   "mat": "greyOak",
+   "lampara": false
+  },
+  {
+   "tipo": "armario",
+   "ref": "d1-armario",
+   "x": 10.475,
+   "z": 3.55,
+   "rot": 0,
+   "ancho": 2.25,
+   "fondo": 0.6,
+   "alto": 2.45,
+   "puertas": 4,
+   "mat": "steelGrey",
+   "tirador": "steelBlack"
+  },
+  {
+   "tipo": "modelo",
+   "ref": "d1-butaca",
+   "x": 11.025,
+   "z": 7.45,
+   "rot": 270,
+   "id": "modern_arm_chair_01",
+   "escala": 0.9775
+  },
+  {
+   "tipo": "alfombra",
+   "ref": "d1-alfombra",
+   "x": 10.05,
+   "z": 5.9,
+   "rot": 0,
+   "ancho": 2.0,
+   "fondo": 2.8,
+   "mat": "rugGrey"
+  },
+  {
+   "tipo": "cuadro",
+   "ref": "d1-cuadro",
+   "x": 8.108,
+   "z": 5.9,
+   "rot": 90,
+   "y": 1.7,
+   "ancho": 1.0,
+   "alto": 0.7,
+   "marco": "steelBlack"
+  },
+  {
+   "tipo": "modelo",
+   "ref": "d1-planta",
+   "x": 11.2,
+   "z": 4.525,
+   "rot": 0,
+   "id": "potted_plant_02",
+   "escala": 0.9976
+  },
+  {
+   "tipo": "cama",
+   "ref": "d2-cama",
+   "x": 3.092,
+   "z": 1.3,
+   "rot": 270,
+   "ancho": 1.35,
+   "largo": 1.9,
+   "tela": "pearl",
+   "plaid": "charcoal"
+  },
+  {
+   "tipo": "mesilla",
+   "ref": "d2-mesita-s",
+   "x": 3.092,
+   "z": 2.23,
+   "rot": 270,
+   "ancho": 0.42,
+   "mat": "greyOak",
+   "lampara": false
+  },
+  {
+   "tipo": "mesilla",
+   "ref": "d2-mesita-n",
+   "x": 3.092,
+   "z": 0.35,
+   "rot": 270,
+   "ancho": 0.42,
+   "mat": "greyOak",
+   "lampara": false
+  },
+  {
+   "tipo": "armario",
+   "ref": "d2-armario",
+   "x": 1.0,
+   "z": 3.45,
+   "rot": 180,
+   "ancho": 1.9,
+   "fondo": 0.58,
+   "alto": 2.45,
+   "puertas": 3,
+   "mat": "lacquer",
+   "tirador": "steelBlack"
+  },
+  {
+   "tipo": "cuadro",
+   "ref": "d2-cuadro",
+   "x": 3.092,
+   "z": 1.35,
+   "rot": 270,
+   "y": 1.7,
+   "ancho": 0.8,
+   "alto": 0.6,
+   "marco": "steelBlack"
+  },
+  {
+   "tipo": "cama",
+   "ref": "d3-cama",
+   "x": 11.08,
+   "z": 0.008,
+   "rot": 0,
+   "ancho": 0.9,
+   "largo": 2.0,
+   "tela": "pearl",
+   "plaid": "cushionBlue"
+  },
+  {
+   "tipo": "mesilla",
+   "ref": "d3-mesita",
+   "x": 10.335,
+   "z": 0.008,
+   "rot": 0,
+   "ancho": 0.43,
+   "mat": "greyOak",
+   "lampara": false
+  },
+  {
+   "tipo": "escritorio",
+   "ref": "d3-escritorio",
+   "x": 11.0,
+   "z": 3.45,
+   "rot": 180,
+   "ancho": 1.2,
+   "fondo": 0.55,
+   "mat": "greyOak",
+   "patas": "steelBlack",
+   "silla": true
+  },
+  {
+   "tipo": "armario",
+   "ref": "d3-armario",
+   "x": 9.2,
+   "z": 1.15,
+   "rot": 90,
+   "ancho": 1.6,
+   "fondo": 0.6,
+   "alto": 2.45,
+   "puertas": 2,
+   "mat": "lacquer",
+   "tirador": "steelBlack"
+  },
+  {
+   "tipo": "modelo",
+   "ref": "d3-flexo",
+   "x": 10.6,
+   "z": 3.25,
+   "rot": 180,
+   "y0": 0.75,
+   "id": "desk_lamp_arm_01",
+   "escala": 0.6344
+  },
+  {
+   "tipo": "banera",
+   "ref": "b2-banera",
+   "x": 4.15,
+   "z": 0.008,
+   "rot": 0,
+   "ancho": 1.884,
+   "fondo": 0.75,
+   "mampara": [
+    0.9,
+    1.4
+   ]
+  },
+  {
+   "tipo": "inodoro",
+   "ref": "b2-inodoro",
+   "x": 5.092,
+   "z": 1.11,
+   "rot": 270
+  },
+  {
+   "tipo": "lavabo",
+   "ref": "b2-lavabo",
+   "x": 5.092,
+   "z": 1.91,
+   "rot": 270,
+   "ancho": 0.68,
+   "mat": "blackLacquer",
+   "encimera": "quartz",
+   "grifo": "steelBlack"
+  },
+  {
+   "tipo": "ducha",
+   "ref": "b1-ducha",
+   "x": 8.1,
+   "z": 0.008,
+   "rot": 0,
+   "ancho": 1.984,
+   "fondo": 0.9,
+   "mampara": 1.2,
+   "grifo": "steelBlack",
+   "plato": "micro"
+  },
+  {
+   "tipo": "inodoro",
+   "ref": "b1-inodoro",
+   "x": 9.092,
+   "z": 2.06,
+   "rot": 270
+  },
+  {
+   "tipo": "lavabo",
+   "ref": "b1-lavabo",
+   "x": 9.092,
+   "z": 1.35,
+   "rot": 270,
+   "ancho": 0.7,
+   "mat": "blackLacquer",
+   "encimera": "quartz",
+   "grifo": "steelBlack"
+  },
+  {
+   "tipo": "aparador",
+   "ref": "rec-consola",
+   "x": 5.2,
+   "z": 1.65,
+   "rot": 90,
+   "ancho": 0.9,
+   "fondo": 0.32,
+   "mat": "greyOak"
+  },
+  {
+   "tipo": "cuadro",
+   "ref": "rec-espejo",
+   "x": 5.2,
+   "z": 1.65,
+   "rot": 90,
+   "y": 1.625,
+   "ancho": 0.7,
+   "alto": 0.95,
+   "mat": "mirror",
+   "marco": "steelBlack"
+  },
+  {
+   "tipo": "cuadro",
+   "ref": "pas-cuadro",
+   "x": 6.2,
+   "z": 3.45,
+   "rot": 180,
+   "y": 1.65,
+   "ancho": 0.9,
+   "alto": 0.6,
+   "marco": "steelBlack"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 0.0,
+   "z": 3.675,
+   "rot": 90,
+   "ancho": 0.25,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "concrete"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 0.0,
+   "z": 4.6,
+   "rot": 90,
+   "ancho": 1.6,
+   "alto": 0.6,
+   "y0": 0.0,
+   "mat": "concrete"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 0.0,
+   "z": 4.6,
+   "rot": 90,
+   "ancho": 1.6,
+   "alto": 0.2,
+   "y0": 2.5,
+   "mat": "concrete"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 0.0,
+   "z": 6.825,
+   "rot": 90,
+   "ancho": 2.85,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "concrete"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 8.0,
+   "z": 5.6,
+   "rot": 270,
+   "ancho": 4.1,
+   "alto": 1.27,
+   "y0": 0.93,
+   "mat": "subway"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 8.1,
+   "z": 5.9,
+   "rot": 90,
+   "ancho": 4.7,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.1,
+   "z": 1.228,
+   "rot": 270,
+   "ancho": 2.455,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.1,
+   "z": 2.953,
+   "rot": 270,
+   "ancho": 0.995,
+   "alto": 0.525,
+   "y0": 2.175,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 9.525,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.65,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 10.2,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.7,
+   "alto": 0.6,
+   "y0": 0.0,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 10.2,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.7,
+   "alto": 0.2,
+   "y0": 2.5,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 11.075,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 1.05,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "steelGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 7.675,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 1.15,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 8.625,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.75,
+   "alto": 1.3,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 8.625,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.75,
+   "alto": 0.4,
+   "y0": 2.3,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 9.05,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.1,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 7.605,
+   "z": 2.35,
+   "rot": 180,
+   "ancho": 1.0,
+   "alto": 0.525,
+   "y0": 2.175,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 8.602,
+   "z": 2.35,
+   "rot": 180,
+   "ancho": 0.995,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 9.1,
+   "z": 1.175,
+   "rot": 270,
+   "ancho": 2.334,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 7.1,
+   "z": 1.175,
+   "rot": 90,
+   "ancho": 2.334,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.4,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.4,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 4.05,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.9,
+   "alto": 1.25,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 4.05,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.9,
+   "alto": 0.4,
+   "y0": 2.3,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 4.8,
+   "z": 0.0,
+   "rot": 0,
+   "ancho": 0.6,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.213,
+   "z": 2.35,
+   "rot": 180,
+   "ancho": 0.025,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.725,
+   "z": 2.35,
+   "rot": 180,
+   "ancho": 1.0,
+   "alto": 0.525,
+   "y0": 2.175,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 4.662,
+   "z": 2.35,
+   "rot": 180,
+   "ancho": 0.875,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 5.1,
+   "z": 1.175,
+   "rot": 270,
+   "ancho": 2.334,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  },
+  {
+   "tipo": "alicatado",
+   "x": 3.2,
+   "z": 1.175,
+   "rot": 90,
+   "ancho": 2.334,
+   "alto": 2.7,
+   "y0": 0.0,
+   "mat": "porcelainGrey"
+  }
+ ],
+ "vistas": {
+  "salon": {
+   "m": "tripod",
+   "p": [
+    4.95,
+    1.42,
+    3.95
+   ],
+   "l": [
+    0.6,
+    1.42,
+    7.55
+   ],
+   "f": 17,
+   "label": "Salón"
+  },
+  "comedor": {
+   "m": "tripod",
+   "p": [
+    0.45,
+    1.42,
+    7.8
+   ],
+   "l": [
+    6.0,
+    1.42,
+    4.25
+   ],
+   "f": 16,
+   "label": "Comedor",
+   "after": "salon"
+  },
+  "cocina": {
+   "m": "tripod",
+   "p": [
+    4.35,
+    1.42,
+    7.75
+   ],
+   "l": [
+    8.0,
+    1.42,
+    4.85
+   ],
+   "f": 18,
+   "label": "Cocina"
+  },
+  "d1": {
+   "m": "tripod",
+   "p": [
+    11.3,
+    1.4,
+    4.35
+   ],
+   "l": [
+    8.1,
+    1.4,
+    6.35
+   ],
+   "f": 17,
+   "label": "Dormitorio principal"
+  },
+  "d2": {
+   "m": "tripod",
+   "p": [
+    0.3,
+    1.4,
+    2.65
+   ],
+   "l": [
+    3.1,
+    1.4,
+    0.75
+   ],
+   "f": 16,
+   "label": "Dormitorio 2"
+  },
+  "d3": {
+   "m": "tripod",
+   "p": [
+    11.45,
+    1.4,
+    2.8
+   ],
+   "l": [
+    9.6,
+    1.4,
+    0.0
+   ],
+   "f": 16,
+   "label": "Dormitorio 3"
+  },
+  "b1": {
+   "m": "tripod",
+   "p": [
+    7.55,
+    1.42,
+    2.4
+   ],
+   "l": [
+    8.7,
+    1.42,
+    0.25
+   ],
+   "f": 16,
+   "label": "Baño 1"
+  },
+  "b2": {
+   "m": "tripod",
+   "p": [
+    3.75,
+    1.42,
+    2.4
+   ],
+   "l": [
+    4.3,
+    1.42,
+    0.0
+   ],
+   "f": 16,
+   "label": "Baño 2"
+  },
+  "recibidor": {
+   "m": "tripod",
+   "p": [
+    6.55,
+    1.42,
+    0.2
+   ],
+   "l": [
+    4.4,
+    1.42,
+    3.4
+   ],
+   "f": 16,
+   "label": "Recibidor"
+  },
+  "terraza": {
+   "m": "tripod",
+   "p": [
+    11.55,
+    1.45,
+    9.75
+   ],
+   "l": [
+    0.5,
+    1.45,
+    8.8
+   ],
+   "f": 16,
+   "label": "Terraza",
+   "after": "comedor"
+  },
+  "pasillo": {
+   "m": "tripod",
+   "p": [
+    3.45,
+    1.42,
+    2.95
+   ],
+   "l": [
+    9.0,
+    1.42,
+    2.95
+   ],
+   "f": 16,
+   "label": "Pasillo"
+  }
+ },
+ "materiales": {
+  "wall": {
+   "tex": "paintPH",
+   "alb": [
+    0.8,
+    0.8,
+    0.79
+   ],
+   "rough": 0.92
+  },
+  "ceiling": {
+   "alb": [
+    0.84,
+    0.84,
+    0.83
+   ],
+   "rough": 0.95
+  },
+  "skirting": {
+   "alb": [
+    0.8,
+    0.8,
+    0.79
+   ],
+   "rough": 0.5
+  },
+  "micro": {
+   "tex": "paintPH",
+   "alb": [
+    0.74,
+    0.75,
+    0.75
+   ],
+   "rough": 0.38
+  },
+  "concrete": {
+   "tex": "concretePH",
+   "alb": [
+    0.36,
+    0.37,
+    0.37
+   ],
+   "rough": 0.85,
+   "nScale": 0.8
+  },
+  "steelGrey": {
+   "tex": "paintPH",
+   "alb": [
+    0.33,
+    0.35,
+    0.37
+   ],
+   "rough": 0.9
+  },
+  "anthracite": {
+   "alb": [
+    0.04,
+    0.042,
+    0.046
+   ],
+   "rough": 0.45
+  },
+  "greyOak": {
+   "tex": "greyOakPH",
+   "alb": [
+    0.45,
+    0.42,
+    0.38
+   ],
+   "rough": 0.6,
+   "nScale": 0.7
+  },
+  "charcoal": {
+   "tex": "linenPH",
+   "alb": [
+    0.075,
+    0.08,
+    0.085
+   ],
+   "rough": 0.95,
+   "nScale": 1.2
+  },
+  "pearl": {
+   "tex": "linenPH",
+   "alb": [
+    0.52,
+    0.53,
+    0.53
+   ],
+   "rough": 0.95,
+   "nScale": 1.2
+  },
+  "cushionBlue": {
+   "tex": "linenPH",
+   "alb": [
+    0.17,
+    0.26,
+    0.37
+   ],
+   "rough": 0.95,
+   "nScale": 1.2
+  },
+  "rugGrey": {
+   "tex": "rug",
+   "alb": [
+    0.3,
+    0.3,
+    0.29
+   ],
+   "rough": 1,
+   "nScale": 0.8
+  },
+  "porcelainGrey": {
+   "tex": "concretePH",
+   "alb": [
+    0.34,
+    0.345,
+    0.35
+   ],
+   "rough": 0.4,
+   "nScale": 0.5
+  },
+  "subway": {
+   "tex": "whiteTilePH",
+   "alb": [
+    0.8,
+    0.81,
+    0.81
+   ],
+   "rough": 0.2
+  },
+  "quartz": {
+   "alb": [
+    0.83,
+    0.83,
+    0.82
+   ],
+   "rough": 0.2
+  },
+  "steelBlack": {
+   "alb": [
+    0.025,
+    0.025,
+    0.027
+   ],
+   "rough": 0.42
+  },
+  "doorBlack": {
+   "alb": [
+    0.03,
+    0.03,
+    0.032
+   ],
+   "rough": 0.5
+  },
+  "terraceTile": {
+   "tex": "greyTilePH",
+   "alb": [
+    0.36,
+    0.36,
+    0.35
+   ],
+   "rough": 0.75
+  }
+ },
+ "terraza": {
+  "rect": [
+   -0.3,
+   8.55,
+   11.9,
+   11.15
+  ],
+  "antepecho": {
+   "espesor": 0.2,
+   "alto": 1.1,
+   "murete": 0.6,
+   "mat": "wall",
+   "pasamanos": "steelBlack"
+  },
+  "lados": [
+   "S",
+   "E",
+   "W"
+  ],
+  "suelo": "terraceTile",
+  "muebles": [
+   {
+    "tipo": "modelo",
+    "ref": "ter-mesa",
+    "x": 1.615,
+    "z": 10.41,
+    "rot": 90,
+    "id": "outdoor_table_chair_set_01",
+    "escala": 1.0012
+   },
+   {
+    "tipo": "sofa",
+    "ref": "ter-sofa",
+    "x": 4.2,
+    "z": 11.1,
+    "rot": 180,
+    "ancho": 2.0,
+    "tela": "charcoal",
+    "cojines": [
+     "cushionBlue",
+     "pearl",
+     null
+    ]
+   },
+   {
+    "tipo": "mesa_centro",
+    "ref": "ter-mesa-baja",
+    "x": 4.2,
+    "z": 9.85,
+    "rot": 0,
+    "radio": 0.35,
+    "mat": "concrete",
+    "libros": false
+   },
+   {
+    "tipo": "jardinera",
+    "ref": "ter-jardinera-1",
+    "x": 7.2,
+    "z": 11.13,
+    "rot": 180,
+    "ancho": 2.4,
+    "fondo": 0.4,
+    "alto": 0.45,
+    "mat": "concrete",
+    "plantas": 4,
+    "escala": 0.72
+   },
+   {
+    "tipo": "jardinera",
+    "ref": "ter-jardinera-2",
+    "x": 10.2,
+    "z": 11.13,
+    "rot": 180,
+    "ancho": 2.4,
+    "fondo": 0.4,
+    "alto": 0.45,
+    "mat": "concrete",
+    "plantas": 4,
+    "escala": 0.72
+   },
+   {
+    "tipo": "tumbona",
+    "ref": "ter-tumbona",
+    "x": 9.65,
+    "z": 9.8,
+    "rot": 0,
+    "largo": 1.5,
+    "ancho": 0.7,
+    "tela": "pearl",
+    "mat": "steelBlack"
+   },
+   {
+    "tipo": "modelo",
+    "ref": "ter-planta",
+    "x": 0.1,
+    "z": 9.15,
+    "rot": 0,
+    "id": "potted_plant_01",
+    "escala": 0.9993
+   }
+  ]
+ }
+}
