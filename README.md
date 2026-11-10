@@ -32,7 +32,7 @@ A partir de ella se generan:
 
 - **Comprobaciones previas:**
   - colisiones entre muebles;
-  - pasos libres de al menos 80 cm;
+  - pasos libres entre muebles de al menos 60 cm;
   - barrido de las puertas;
   - accesibilidad de cada estancia.
 - **Escena de Blender:**
@@ -45,8 +45,9 @@ A partir de ella se generan:
   - La geometría se reconstruye en el navegador a partir de los mismos datos.
   - La luz se **hornea en Cycles** en un lightmap de 2048 × 2048: directa a 8 192 muestras e indirecta a 32 768, más 42 focos empotrados.
   - Por eso se ve con iluminación global realista y va fluido en un móvil.
-  - Paseo con colisiones por rayos.
-  - Rutas A* sobre una rejilla de holgura para ir caminando a donde se toca.
+  - Paseo con colisiones: el cuerpo es un círculo de 40 cm que se desliza por muros y muebles en lugar de frenar en seco.
+  - Rutas A* sobre una rejilla de holgura de 5 cm para ir caminando a donde se toca.
+  - Una batería de pruebas recorre la casa con el mismo código del visor (pasos entre muebles, puertas, salida a la terraza).
   - Exposición automática y modo maqueta con cortes.
 
 <p align="center"><img src="docs/movil.jpg" width="60%" alt="Anuncio y recorrido en el móvil"></p>

@@ -567,7 +567,7 @@
   {
    "tipo": "mesa_centro",
    "ref": "sal-mesa-centro",
-   "x": 1.82,
+   "x": 1.72,
    "z": 6.4,
    "rot": 0,
    "radio": 0.4,
@@ -1772,7 +1772,7 @@
    {
     "tipo": "mesa_centro",
     "ref": "ter-mesa-baja",
-    "x": 4.2,
+    "x": 4.35,
     "z": 9.85,
     "rot": 0,
     "radio": 0.35,
