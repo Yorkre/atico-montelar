@@ -291,7 +291,8 @@
    "travesanos": [
     0.95,
     2.05
-   ]
+   ],
+   "corredera": true
   },
   {
    "id": "V-SAL-O",
@@ -320,7 +321,8 @@
    "travesanos": [
     0.95,
     2.05
-   ]
+   ],
+   "corredera": true
   },
   {
    "id": "V-D1-S",
@@ -337,7 +339,8 @@
     0.95,
     2.05
    ],
-   "cortinas": true
+   "cortinas": true,
+   "corredera": true
   },
   {
    "id": "V-D1-E",
